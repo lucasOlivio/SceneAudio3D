@@ -22,3 +22,4 @@ glm::mat4 CameraSystem::GetViewMat()
                         this->m_pCamera->cameraEye + this->m_pCamera->cameraFront,
                         this->m_pCamera->upVector);
 }
+

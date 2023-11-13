@@ -17,8 +17,8 @@ bool GameManager::Load(EntityID entityID, SceneView* pScene)
 	this->m_pSceneView = pScene;
 	this->m_entityID = entityID;
 
-	this->m_tag = pScene->GetComponent<TagComponent>(entityID, "tag");
-	this->m_script = pScene->GetComponent<ScriptComponent>(entityID, "script");
+	this->m_pTag = pScene->GetComponent<TagComponent>(entityID, "tag");
+	this->m_pScript = pScene->GetComponent<ScriptComponent>(entityID, "script");
 
 	return true;
 }
@@ -33,16 +33,26 @@ void GameManager::OnStart(iEvent* pEvent)
 
 	// Script custom
 	//----------------
-
+	this->m_maxHeight = std::stof(this->m_pScript->GetVariable("maxHeight"));
+	this->m_maxWidth = std::stof(this->m_pScript->GetVariable("maxWidth"));
+	this->m_minHeight = std::stof(this->m_pScript->GetVariable("minHeight"));
+	this->m_minWidth = std::stof(this->m_pScript->GetVariable("minWidth"));
 
 	GameObjectFactory gameObjFactory(this->m_pSceneView);
 
 	// Load player
 	//----------------
+	iGameObject* pPlayer = gameObjFactory.CreateGameObject("player", false);
+
+	pPlayer->SetMediator(this);
+	pPlayer->OnStart(this->m_pCollisionEvents);
+
+	this->m_pPlayer = pPlayer;
 }
 
 void GameManager::Update(double deltaTime)
 {
+	this->m_pPlayer->Update(deltaTime);
 }
 
 void GameManager::OnExit(iEvent* pEvent)
@@ -56,12 +66,12 @@ void GameManager::OnExit(iEvent* pEvent)
 
 std::string GameManager::GetTagName()
 {
-	return this->m_tag->name;
+	return this->m_pTag->name;
 }
 
 std::string GameManager::GetScriptName()
 {
-	return this->m_script->GetScriptName();
+	return this->m_pScript->GetScriptName();
 }
 
 EntityID GameManager::GetEntityID()

@@ -1,5 +1,6 @@
 #include "GameObjects/GameObjectFactory.h"
 #include "GameObjects/GameManager.h"
+#include "GameObjects/Player.h"
 
 GameObjectFactory::GameObjectFactory(SceneView* pScene)
 {
@@ -24,6 +25,10 @@ iGameObject* GameObjectFactory::CreateGameObject(std::string gameObjName, bool i
 	if (scriptName == "GameManager")
 	{
 		pGameObj = new GameManager();
+	}
+	else if (scriptName == "Player")
+	{
+		pGameObj = new Player();
 	}
 	else
 	{

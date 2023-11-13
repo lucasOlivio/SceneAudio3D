@@ -13,11 +13,12 @@ private:
 	iEvent* m_pCollisionEvents;
 
 	EntityID m_entityID;
-	TagComponent* m_tag;
-	ScriptComponent* m_script;
+	TagComponent* m_pTag;
+	ScriptComponent* m_pScript;
 
 	// Child game objects
 	//-------------------
+	iGameObject* m_pPlayer;
 	std::vector<iGameObject*> m_vecGameObjects; // All kinds of game objects used for the gameplay
 
 	// Script custom

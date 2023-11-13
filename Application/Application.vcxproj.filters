@@ -27,7 +27,10 @@
     <ClCompile Include="Application\src\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\src\GameObjects\MovableObject.cpp">
+    <ClCompile Include="Application\src\GameObjects\DefaultObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\src\GameObjects\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -58,10 +61,10 @@
     <ClInclude Include="Application\include\GameObjects\iGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\include\GameObjects\FirstPersonMovement.h">
+    <ClInclude Include="Application\include\GameObjects\DefaultObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\include\GameObjects\MovableObject.h">
+    <ClInclude Include="Application\include\GameObjects\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

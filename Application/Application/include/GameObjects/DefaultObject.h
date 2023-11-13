@@ -6,19 +6,17 @@
 #include "components/Force.h"
 #include "components/Collision.h"
 #include "components/Script.h"
+#include "components/Model.h"
 #include "events/iCollisionListener.h"
 
-// TODO: This whole game objects things should be rebuilt as a component design pattern
-
-class MovableObject : public iGameObject
+class DefaultObject : public iGameObject
 {
 protected:
 	EntityID m_entityID;
-	TagComponent* m_tag;
-	ScriptComponent* m_script;
-	TransformComponent* m_transform;
-	ForceComponent* m_force;
-	CollisionComponent* m_collision;
+	TagComponent* m_pTag;
+	ScriptComponent* m_pScript;
+	TransformComponent* m_pTransform;
+	ForceComponent* m_pForce;
 
 	iGameMediator* m_pMediator;
 
@@ -31,8 +29,8 @@ protected:
 	float m_velocity;
 
 public:
-	MovableObject() {};
-	virtual ~MovableObject() {};
+	DefaultObject() {};
+	virtual ~DefaultObject() {};
 
 	// Game object
 	//----------------
@@ -55,9 +53,6 @@ public:
 	virtual glm::vec3 GetPosition();
 	virtual std::string GetTagName();
 	virtual std::string GetScriptName();
-
-	// Change the force velocity to be m_velocity * orientation
-	virtual void Move(glm::vec3 orientation);
 
 	virtual void Delete();
 	virtual bool IsDeleted();

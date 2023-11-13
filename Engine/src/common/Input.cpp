@@ -6,7 +6,9 @@
 bool Input::IsKeyPressed(const int key)
 {
     GLFWwindow* pWindow = Engine::Get()->GetWindow();
+
     int state = glfwGetKey(pWindow, static_cast<int32_t>(key));
+
     return state == GLFW_PRESS;
 }
 
@@ -14,11 +16,11 @@ glm::vec2 Input::MousePosition()
 {
     using namespace glm;
 
+    double xPos, yPos;
     Engine* pEng = Engine::Get();
 
     // Relative window mouse position
     GLFWwindow* pWindow = pEng->GetWindow();
-    double xPos, yPos;
     glfwGetCursorPos(pWindow, &xPos, &yPos);
 
     return { (float)xPos, (float)yPos };

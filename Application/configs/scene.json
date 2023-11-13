@@ -2,14 +2,14 @@
     {
         "camera": {
             "cameraEye": [
-                71.0,
-                2.0,
-                32.0
+                31.0,
+                3.0,
+                26.0
             ],
             "cameraFront": [
                 0.0,
                 0.0,
-                0.0
+                -1.0
             ],
             "upVector": [
                 0.0,
@@ -18,11 +18,47 @@
             ],
             "isActive": true
         },
+        "force": {
+            "inverseMass": 0.10000000149011612,
+            "restitution": 0.800000011920929,
+            "acceleration": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "velocity": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "isActive": true,
+            "adjustTowards": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "adjustValue": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        "script": {
+            "scriptName": "Player",
+            "isActive": false,
+            "variables": {
+                "sensitivity": "0.025",
+                "velocity": "300"
+            }
+        },
+        "tag": {
+            "name": "player"
+        },
         "transform": {
             "position": [
-                71.0,
-                2.0,
-                32.0
+                31.0,
+                3.0,
+                26.0
             ],
             "scale": 1.0,
             "orientation": [
@@ -58,7 +94,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -97,7 +133,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -136,7 +172,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -175,7 +211,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -214,7 +250,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -253,7 +289,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -292,7 +328,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -331,7 +367,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -370,7 +406,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -409,7 +445,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -448,7 +484,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -487,7 +523,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -526,7 +562,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -565,7 +601,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -604,7 +640,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -643,7 +679,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -670,7 +706,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -697,7 +733,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -736,7 +772,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -775,7 +811,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -814,7 +850,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -853,7 +889,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -892,7 +928,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -931,7 +967,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -970,7 +1006,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1009,7 +1045,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1048,7 +1084,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1087,7 +1123,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1126,7 +1162,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1165,7 +1201,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1204,7 +1240,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1243,7 +1279,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1282,7 +1318,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1321,7 +1357,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1360,7 +1396,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1399,7 +1435,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1438,7 +1474,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1477,7 +1513,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -1504,7 +1540,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -1531,7 +1567,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1570,7 +1606,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1609,7 +1645,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1648,7 +1684,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1687,7 +1723,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1726,7 +1762,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1765,7 +1801,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1804,7 +1840,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1843,7 +1879,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1882,7 +1918,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "tiling": {
             "axis": [
@@ -1960,7 +1996,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2026,7 +2062,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2092,7 +2128,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2158,7 +2194,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2224,7 +2260,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2290,7 +2326,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2356,7 +2392,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2422,7 +2458,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2488,7 +2524,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2554,7 +2590,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2620,7 +2656,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2686,7 +2722,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2752,7 +2788,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2818,7 +2854,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2884,7 +2920,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -2950,7 +2986,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -3016,7 +3052,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -3082,7 +3118,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -3148,7 +3184,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -3214,7 +3250,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [
@@ -3280,7 +3316,7 @@
             "isWireframe": false,
             "useVertexColour": true,
             "doNotLight": false,
-            "isActive": false
+            "isActive": true
         },
         "transform": {
             "position": [

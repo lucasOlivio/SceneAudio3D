@@ -139,7 +139,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application\src\Application.cpp" />
-    <ClCompile Include="Application\src\GameObjects\MovableObject.cpp" />
+    <ClCompile Include="Application\src\GameObjects\DefaultObject.cpp" />
+    <ClCompile Include="Application\src\GameObjects\Player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Application\src\GameObjects\GameObjectFactory.cpp" />
     <ClCompile Include="Application\src\GameObjects\GameManager.cpp" />
@@ -151,12 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\include\Application.h" />
-    <ClInclude Include="Application\include\GameObjects\FirstPersonMovement.h" />
     <ClInclude Include="Application\include\GameObjects\GameManager.h" />
     <ClInclude Include="Application\include\GameObjects\GameObjectFactory.h" />
     <ClInclude Include="Application\include\GameObjects\iGameMediator.h" />
     <ClInclude Include="Application\include\GameObjects\iGameObject.h" />
-    <ClInclude Include="Application\include\GameObjects\MovableObject.h" />
+    <ClInclude Include="Application\include\GameObjects\DefaultObject.h" />
+    <ClInclude Include="Application\include\GameObjects\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

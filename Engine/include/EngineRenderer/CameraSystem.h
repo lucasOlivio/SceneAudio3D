@@ -2,7 +2,6 @@
 
 #include "scene/SceneView.h"
 #include "components/Camera.h"
-#include "components/Transform.h"
 #include <glm/mat4x4.hpp>
 
 class CameraSystem
