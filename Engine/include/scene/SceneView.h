@@ -38,6 +38,8 @@ public:
 		return (Component*)comp;
 	}
 
+	virtual int GetNumComponents(std::string componentName);
+
 	// Return the entity id by tag name and saves it to cache
 	// Returns -1 if not found
 	virtual int GetEntityByTag(std::string tagName);

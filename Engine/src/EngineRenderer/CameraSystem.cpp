@@ -1,6 +1,7 @@
 #include "EngineRenderer/CameraSystem.h"
 #include "common/opengl.h"
 #include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+#include <glm/gtx/string_cast.hpp>
 
 CameraSystem::CameraSystem(SceneView* pSceneView)
 {

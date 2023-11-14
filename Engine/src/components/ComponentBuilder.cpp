@@ -50,6 +50,14 @@ iComponent* ComponentBuilder::BuildComponent(sComponentInfo& componentInfo, Enti
 	{
 		newComponent = new LightComponent();
 	}
+	else if (componentInfo.componentName == "audio")
+	{
+		newComponent = new AudioComponent();
+	}
+	else if (componentInfo.componentName == "channel")
+	{
+		newComponent = new ChannelComponent();
+	}
 	else
 	{
 		printf("Error: Invalid component '%s'\n", componentInfo.componentName.c_str());

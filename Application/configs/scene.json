@@ -2,12 +2,12 @@
     {
         "camera": {
             "cameraEye": [
-                31.0,
+                34.0,
                 3.0,
-                26.0
+                32.0
             ],
             "cameraFront": [
-                0.0,
+                -3.0,
                 0.0,
                 -1.0
             ],
@@ -56,9 +56,65 @@
         },
         "transform": {
             "position": [
-                31.0,
+                34.0,
                 3.0,
-                26.0
+                32.0
+            ],
+            "scale": 1.0,
+            "orientation": [
+                0.0,
+                -0.0,
+                0.0
+            ]
+        }
+    },
+    {
+        "channel": {
+            "name": "channel1",
+            "volume": 0.75,
+            "pitch": 0.0,
+            "pan": 0.0,
+            "paused": false
+        },
+        "tag": {
+            "name": "Channel1"
+        }
+    },
+    {
+        "audio": {
+            "name": "scifi-music.mp3",
+            "idChannelGroup": 0,
+            "isStream": false,
+            "minDistance": 0.5,
+            "maxDistance": 2.0
+        },
+        "model": {
+            "models": [
+                "Radio.ply"
+            ],
+            "collisionName": "",
+            "friendlyName": "radio",
+            "parentTagName": "",
+            "isWireframe": false,
+            "useVertexColour": true,
+            "doNotLight": false,
+            "isActive": true
+        },
+        "script": {
+            "scriptName": "AudioObject",
+            "isActive": true,
+            "variables": {
+                "startPlaying": "1"
+            }
+        },
+        "tag": {
+            "name": "radio"
+        },
+        "transform": {
+            "position": [
+                30.0,
+                1.600000023841858,
+                35.0
             ],
             "scale": 1.0,
             "orientation": [
@@ -233,9 +289,48 @@
             ],
             "scale": 1.0,
             "orientation": [
-                180.0,
+                -180.0,
                 -1.0,
-                180.0
+                -180.0
+            ]
+        }
+    },
+    {
+        "model": {
+            "models": [
+                "SM_Env_Construction_Wall_02.ply"
+            ],
+            "collisionName": "",
+            "friendlyName": "wallFront",
+            "parentTagName": "",
+            "isWireframe": false,
+            "useVertexColour": true,
+            "doNotLight": false,
+            "isActive": true
+        },
+        "tiling": {
+            "axis": [
+                1.0,
+                5.0,
+                4.0
+            ],
+            "offset": [
+                0.0,
+                5.0,
+                10.0
+            ]
+        },
+        "transform": {
+            "position": [
+                60.0,
+                0.0,
+                0.0
+            ],
+            "scale": 1.0,
+            "orientation": [
+                0.0,
+                -89.98021697998047,
+                0.0
             ]
         }
     },
@@ -1706,9 +1801,9 @@
             ],
             "scale": 1.0,
             "orientation": [
-                180.0,
+                -180.0,
                 -1.0,
-                180.0
+                -180.0
             ]
         }
     },
@@ -1745,9 +1840,9 @@
             ],
             "scale": 1.0,
             "orientation": [
-                180.0,
+                -180.0,
                 -1.0,
-                180.0
+                -180.0
             ]
         }
     },
@@ -1901,9 +1996,9 @@
             ],
             "scale": 1.0,
             "orientation": [
-                180.0,
+                -180.0,
                 -1.0,
-                180.0
+                -180.0
             ]
         }
     },

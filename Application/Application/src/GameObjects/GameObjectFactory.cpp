@@ -1,6 +1,7 @@
 #include "GameObjects/GameObjectFactory.h"
 #include "GameObjects/GameManager.h"
 #include "GameObjects/Player.h"
+#include "GameObjects/AudioObject.h"
 
 GameObjectFactory::GameObjectFactory(SceneView* pScene)
 {
@@ -29,6 +30,10 @@ iGameObject* GameObjectFactory::CreateGameObject(std::string gameObjName, bool i
 	else if (scriptName == "Player")
 	{
 		pGameObj = new Player();
+	}
+	else if (scriptName == "AudioObject")
+	{
+		pGameObj = new AudioObject();
 	}
 	else
 	{

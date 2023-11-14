@@ -12,6 +12,9 @@ namespace myutils
     // Get string after last "." in file name
     std::string GetFileExtension(const std::string& fileName);
 
+    // Remove paths from string and return only the file name
+    char* GetFileFromPath(const char* fullPath);
+
     // Split string based on delimiter
     void SplitString(const std::string& stringIn,
         char delimiter,

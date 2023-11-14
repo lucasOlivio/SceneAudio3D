@@ -30,6 +30,7 @@ void GameManager::OnStart(iEvent* pEvent)
 	using namespace glm;
 
 	this->m_pCollisionEvents = pEvent;
+	this->m_vecGameObjects.clear();
 
 	// Script custom
 	//----------------
@@ -40,19 +41,32 @@ void GameManager::OnStart(iEvent* pEvent)
 
 	GameObjectFactory gameObjFactory(this->m_pSceneView);
 
-	// Load player
+	// Load player first
 	//----------------
-	iGameObject* pPlayer = gameObjFactory.CreateGameObject("player", false);
+	this->SpawnGameObj("player");
 
-	pPlayer->SetMediator(this);
-	pPlayer->OnStart(this->m_pCollisionEvents);
+	// Load rest of game objects
+	//----------------
+	for (this->m_pSceneView->First("script"); !this->m_pSceneView->IsDone(); this->m_pSceneView->Next())
+	{
+		EntityID entityId = this->m_pSceneView->CurrentKey();
+		TagComponent* pTag = this->m_pSceneView->GetComponent<TagComponent>(entityId, "tag");
 
-	this->m_pPlayer = pPlayer;
+		if (pTag->name == "player" || pTag->name == "GM")
+		{
+			continue;
+		}
+
+		this->SpawnGameObj(pTag->name);
+	}
 }
 
 void GameManager::Update(double deltaTime)
 {
-	this->m_pPlayer->Update(deltaTime);
+	for (int i = 0; i < this->m_vecGameObjects.size(); i++)
+	{
+		this->m_vecGameObjects[i]->Update(deltaTime);
+	}
 }
 
 void GameManager::OnExit(iEvent* pEvent)
@@ -130,6 +144,21 @@ void GameManager::SpawnGameObj(std::string tagName, glm::vec3 position, glm::vec
 }
 
 void GameManager::SpawnGameObj(std::string tagName)
+{
+	using namespace glm;
+	using namespace myutils;
+
+	GameObjectFactory gameObjFactory(this->m_pSceneView);
+
+	iGameObject* pGameObj = gameObjFactory.CreateGameObject(tagName, false);
+
+	pGameObj->SetMediator(this);
+	pGameObj->OnStart(this->m_pCollisionEvents);
+
+	this->m_vecGameObjects.push_back(pGameObj);
+}
+
+void GameManager::SpawnGameObjRandomPos(std::string tagName)
 {
 	using namespace glm;
 	using namespace myutils;

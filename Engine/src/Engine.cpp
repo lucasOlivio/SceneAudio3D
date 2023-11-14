@@ -11,6 +11,7 @@ std::string baseConfigsPath = "configs/";
 std::string sceneFilePath = "";
 std::string baseShadersPath = "assets/shaders/";
 std::string baseModelPath = "assets/models/";
+std::string baseAudioPath = "assets/audios/";
 std::string baseTexturesPath = "assets/textures/";
 std::string shaderProgramName = "Shader01";
 uint windowWidth = 1080;
@@ -41,7 +42,11 @@ Engine::~Engine()
 
 Engine* Engine::Get()
 {
-	return m_pInstance;
+	if (Engine::m_pInstance == nullptr)
+	{
+		Engine::m_pInstance = new Engine();
+	}
+	return Engine::m_pInstance;
 }
 
 bool Engine::Initialize(const std::string& sceneName)
@@ -83,6 +88,8 @@ bool Engine::Initialize(const std::string& sceneName)
 	this->m_pRenderer = new Renderer();
 	this->m_pEditor = new Editor(this->m_pKeyEvent, this->m_pScene, this);
 	this->m_pPhysics = new Physics(this->m_pScene, this->m_pCollisionEvent);
+	this->m_pMediaPlayer = MediaPlayer::Get();
+
 	this->m_pWindowSystem = new WindowSystem(this->m_pShaderManager);
 
 	printf("Initializing systems...\n");
@@ -116,7 +123,14 @@ bool Engine::Initialize(const std::string& sceneName)
 														 this->m_pScene);
 	if (!isERInitialized)
 	{
-		CheckEngineError("Engine renderer initializing");
+		CheckEngineError("Engine renderer initialization");
+		return false;
+	}
+
+	bool isMediaInit = this->m_pMediaPlayer->Initialize(baseAudioPath, this->m_pScene);
+	if (!isMediaInit)
+	{
+		CheckEngineError("Engine media player initialization");
 		return false;
 	}
 
@@ -156,6 +170,7 @@ void Engine::Run()
 void Engine::Update(double fixedDeltaTime)
 {
 	this->m_pPhysics->Update(fixedDeltaTime);
+	this->m_pMediaPlayer->Update(fixedDeltaTime);
 	this->m_pWindowSystem->UpdateUL(this->m_currShaderID);
 	this->m_pRenderer->RenderScene(fixedDeltaTime);
 }

@@ -18,7 +18,6 @@ private:
 
 	// Child game objects
 	//-------------------
-	iGameObject* m_pPlayer;
 	std::vector<iGameObject*> m_vecGameObjects; // All kinds of game objects used for the gameplay
 
 	// Script custom
@@ -65,8 +64,9 @@ public:
 	virtual bool GetTargetDirection(std::string targetName, glm::vec3 objPosition, glm::vec3& directionOut);
 	virtual void DestroyGameObj(iGameObject* pGameObj);
 	virtual void SpawnGameObj(std::string tagName, glm::vec3 position, glm::vec3 direction);
-	// Random spawn
 	virtual void SpawnGameObj(std::string tagName);
+	// Random spawn
+	virtual void SpawnGameObjRandomPos(std::string tagName);
 
 	// Collision listener
 	//----------------

@@ -48,6 +48,13 @@ EntityID SceneView::CurrentKey()
 	return this->m_currIterator->first;
 }
 
+int SceneView::GetNumComponents(std::string componentName)
+{
+	std::map<EntityID, iComponent*> mapComponents;
+	this->GetMapComponents(componentName, mapComponents);
+	return mapComponents.size();
+}
+
 int SceneView::GetEntityByTag(std::string tagName)
 {
 	auto tagEntity = this->m_mapTagEntity.find(tagName);

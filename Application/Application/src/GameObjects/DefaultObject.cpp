@@ -9,7 +9,6 @@ bool DefaultObject::Load(EntityID entityID, SceneView* pScene)
 	this->m_pTag = pScene->GetComponent<TagComponent>(entityID, "tag");
 	this->m_pTransform = pScene->GetComponent<TransformComponent>(entityID, "transform");
 	this->m_pScript = pScene->GetComponent<ScriptComponent>(entityID, "script");
-	this->m_pForce = pScene->GetComponent<ForceComponent>(entityID, "force");
 
 	return true;
 }
@@ -17,10 +16,6 @@ bool DefaultObject::Load(EntityID entityID, SceneView* pScene)
 void DefaultObject::OnStart(iEvent* pEvent)
 {
 	this->m_currDirection = glm::vec3(0);
-
-	// Script custom
-	//----------------
-	this->m_velocity = std::stof(this->m_pScript->GetVariable("velocity"));
 
 	pEvent->Attach(this);
 }

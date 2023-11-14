@@ -5,6 +5,7 @@
 #include "EngineRenderer/Renderer.h"
 #include "EngineEditor/Editor.h"
 #include "EnginePhysics/Physics.h"
+#include "EngineMedia/MediaPlayer.h"
 #include "events/KeyEvent.h"
 #include "events/CollisionEvent.h"
 
@@ -20,6 +21,7 @@ protected:
 	Renderer* m_pRenderer;
 	Editor* m_pEditor;
 	Physics* m_pPhysics;
+	MediaPlayer* m_pMediaPlayer;
 
 	WindowSystem* m_pWindowSystem;
 	ShaderManager* m_pShaderManager;

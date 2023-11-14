@@ -9,7 +9,7 @@ public:
 	glm::vec3 cameraEye;
 	glm::vec3 cameraFront;
 	glm::vec3 upVector;
-	bool isActive; // TODO: Only one camera active
+	bool isActive;
 
 	virtual void GetInfo(sComponentInfo& compInfoOut);
 	virtual void SetParameter(sParameterInfo& parameterIn);

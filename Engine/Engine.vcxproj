@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glad.c" />
+    <ClCompile Include="src\components\Audio.cpp" />
+    <ClCompile Include="src\components\Channel.cpp" />
     <ClCompile Include="src\components\Component.cpp" />
     <ClCompile Include="src\components\Light.cpp" />
     <ClCompile Include="src\components\Texture.cpp" />
@@ -28,6 +30,8 @@
     <ClCompile Include="src\components\Script.cpp" />
     <ClCompile Include="src\components\Tag.cpp" />
     <ClCompile Include="src\components\Tiling.cpp" />
+    <ClCompile Include="src\EngineMedia\AudioManager.cpp" />
+    <ClCompile Include="src\EngineMedia\MediaPlayer.cpp" />
     <ClCompile Include="src\EngineRenderer\CameraSystem.cpp" />
     <ClCompile Include="src\components\Collision.cpp" />
     <ClCompile Include="src\EnginePhysics\CollisionEvent.cpp" />
@@ -70,7 +74,9 @@
     <ClInclude Include="include\common\utils.h" />
     <ClInclude Include="include\common\utilsMat.h" />
     <ClInclude Include="include\components.h" />
+    <ClInclude Include="include\components\Audio.h" />
     <ClInclude Include="include\components\Camera.h" />
+    <ClInclude Include="include\components\Channel.h" />
     <ClInclude Include="include\components\Collision.h" />
     <ClInclude Include="include\components\Component.h" />
     <ClInclude Include="include\components\ComponentBuilder.h" />
@@ -82,6 +88,8 @@
     <ClInclude Include="include\components\Tag.h" />
     <ClInclude Include="include\components\Texture.h" />
     <ClInclude Include="include\components\Tiling.h" />
+    <ClInclude Include="include\EngineMedia\AudioManager.h" />
+    <ClInclude Include="include\EngineMedia\MediaPlayer.h" />
     <ClInclude Include="include\EngineRenderer\LightSystem.h" />
     <ClInclude Include="include\events\iCollisionListener.h" />
     <ClInclude Include="include\events\sCollisionData.h" />
@@ -118,6 +126,8 @@
     <ClInclude Include="include\TextureManager\CTextureFromBMP.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fmod.dll" />
+    <None Include="fmodL.dll" />
     <None Include="include\scene\SceneView.tpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -233,7 +243,7 @@
     <Lib>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -259,7 +269,7 @@
     <Lib>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;fmod_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

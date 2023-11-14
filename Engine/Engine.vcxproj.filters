@@ -154,6 +154,18 @@
     <ClCompile Include="src\EngineRenderer\LightSystem.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="src\components\Audio.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\components\Channel.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineMedia\AudioManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EngineMedia\MediaPlayer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\EngineRenderer\CameraSystem.h">
@@ -290,10 +302,16 @@
     <ClInclude Include="include\components\Tiling.h" />
     <ClInclude Include="include\components\Light.h" />
     <ClInclude Include="include\EngineRenderer\LightSystem.h" />
+    <ClInclude Include="include\components\Audio.h" />
+    <ClInclude Include="include\EngineMedia\AudioManager.h" />
+    <ClInclude Include="include\components\Channel.h" />
+    <ClInclude Include="include\EngineMedia\MediaPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="include\scene\SceneView.tpp">
       <Filter>EngineUtilities\Scenes</Filter>
     </None>
+    <None Include="fmodL.dll" />
+    <None Include="fmod.dll" />
   </ItemGroup>
 </Project>

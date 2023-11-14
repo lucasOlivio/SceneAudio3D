@@ -16,17 +16,12 @@ protected:
 	TagComponent* m_pTag;
 	ScriptComponent* m_pScript;
 	TransformComponent* m_pTransform;
-	ForceComponent* m_pForce;
 
 	iGameMediator* m_pMediator;
 
 	glm::vec3 m_currDirection;
 
 	bool m_isDeleted;
-
-	// Script custom
-	//----------------
-	float m_velocity;
 
 public:
 	DefaultObject() {};

@@ -22,6 +22,15 @@ std::string myutils::GetFileExtension(const std::string& fileName)
     return fileName; // Full string if no extension found
 }
 
+char* myutils::GetFileFromPath(const char* cPath)
+{
+    std::string sPath = cPath;
+    std::string baseFilename = sPath.substr(sPath.find_last_of("/\\") + 1);
+    char* cBaseFileName = new char[baseFilename.size() + 1];
+    strcpy_s(cBaseFileName, baseFilename.size() + 1, baseFilename.c_str());
+    return cBaseFileName;
+}
+
 void myutils::SplitString(const std::string& stringIn,
     char delimiter,
     std::vector<std::string> vecOut)

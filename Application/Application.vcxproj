@@ -138,6 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Application\src\GameObjects\AudioObject.cpp" />
     <ClCompile Include="Application\src\Application.cpp" />
     <ClCompile Include="Application\src\GameObjects\DefaultObject.cpp" />
     <ClCompile Include="Application\src\GameObjects\Player.cpp" />
@@ -149,9 +150,12 @@
     <None Include="assets\shaders\fragmentShader01.glsl" />
     <None Include="assets\shaders\vertexShader01.glsl" />
     <None Include="configs\scene.json" />
+    <None Include="fmod.dll" />
+    <None Include="fmodL.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\include\Application.h" />
+    <ClInclude Include="Application\include\GameObjects\AudioObject.h" />
     <ClInclude Include="Application\include\GameObjects\GameManager.h" />
     <ClInclude Include="Application\include\GameObjects\GameObjectFactory.h" />
     <ClInclude Include="Application\include\GameObjects\iGameMediator.h" />

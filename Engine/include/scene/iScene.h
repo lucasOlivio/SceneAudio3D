@@ -21,6 +21,9 @@ public:
 	virtual void DeleteEntity(EntityID entityID) = 0;
 	virtual void DeleteListener(iListener* pListener) = 0;
 
+	// Total number of this component in scene
+	virtual int GetNumComponents(std::string componentName) = 0;
+
 	// Get all parameters info from all the components
 	// this entity has attached to it
 	virtual std::vector<sComponentInfo> GetComponentsInfo(EntityID entityID) = 0;

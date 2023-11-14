@@ -11,3 +11,5 @@
 #include "components/Texture.h"
 #include "components/Tiling.h"
 #include "components/Light.h"
+#include "components/Audio.h"
+#include "components/Channel.h"
