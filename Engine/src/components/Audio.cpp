@@ -12,6 +12,7 @@ void AudioComponent::GetInfo(sComponentInfo& compInfoOut)
     this->AddCompParInfo("name", "string", this->m_name, compInfoOut);
     this->AddCompParInfo("idChannelGroup", "int", this->m_idChannelGroup, compInfoOut);
     this->AddCompParInfo("isStream", "bool", this->m_isStream, compInfoOut);
+    this->AddCompParInfo("isLoop", "bool", this->m_isLoop, compInfoOut);
     this->AddCompParInfo("minDistance", "float", this->m_minDistance, compInfoOut);
     this->AddCompParInfo("maxDistance", "float", this->m_maxDistance, compInfoOut);
 }
@@ -28,6 +29,9 @@ void AudioComponent::SetParameter(sParameterInfo& parameterIn)
     }
     else if (parameterIn.parameterName == "isStream") {
         this->m_isStream = parameterIn.parameterBoolValue;
+    }
+    else if (parameterIn.parameterName == "isLoop") {
+        this->m_isLoop = parameterIn.parameterBoolValue;
     }
     else if (parameterIn.parameterName == "minDistance") {
         this->m_minDistance = parameterIn.parameterFloatValue;
@@ -52,6 +56,18 @@ FMOD::Sound* AudioComponent::GetSound()
 bool AudioComponent::IsStream()
 {
     if (this->m_isStream)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool AudioComponent::IsLoop()
+{
+    if (this->m_isLoop)
     {
         return true;
     }

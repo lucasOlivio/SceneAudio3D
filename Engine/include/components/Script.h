@@ -13,6 +13,7 @@ public:
 	void SetActive(bool isActive);
 	bool IsActive();
 
+	// Get the given variable from the map, if variable not found them returns empty string
 	std::string GetVariable(std::string key);
 
 	void SetScriptName(std::string value);

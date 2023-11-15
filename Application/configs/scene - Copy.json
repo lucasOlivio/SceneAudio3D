@@ -145,13 +145,11 @@
                 "distortionLevel": "0.99",
                 "isPausable": "1",
                 "isPlaying": "1",
-                "pitch": "1",
                 "reverbDecay": "0.0",
                 "reverbDensity": "0.0",
                 "reverbDiffusion": "0.0",
                 "setDistortion": "1",
-                "setHighPass": "0",
-                "setLowPass": "0",
+                "setPitch": "1",
                 "setReverb": "0"
             }
         },
@@ -490,7 +488,7 @@
     },
     {
         "audio": {
-            "name": "hangar-door.aiff",
+            "name": "hangar-door.wav",
             "idChannelGroup": 2,
             "isStream": false,
             "isLoop": false,
@@ -505,13 +503,11 @@
                 "distortionLevel": "0",
                 "isPausable": "0",
                 "isPlaying": "0",
-                "pitch": "0.8",
                 "reverbDecay": "1500",
                 "reverbDensity": "10",
                 "reverbDiffusion": "50",
                 "setDistortion": "0",
-                "setHighPass": "0",
-                "setLowPass": "0",
+                "setPitch": "0.8",
                 "setReverb": "1"
             }
         },
@@ -1716,13 +1712,11 @@
                 "distortionLevel": "0.0",
                 "isPausable": "0",
                 "isPlaying": "0",
-                "pitch": "1.0",
                 "reverbDecay": "0.0",
                 "reverbDensity": "0.0",
                 "reverbDiffusion": "0.0",
                 "setDistortion": "0",
-                "setHighPass": "0",
-                "setLowPass": "1",
+                "setPitch": "0",
                 "setReverb": "0"
             }
         },
@@ -1784,13 +1778,11 @@
                 "distortionLevel": "0.0",
                 "isPausable": "0",
                 "isPlaying": "0",
-                "pitch": "1.0",
                 "reverbDecay": "0.0",
                 "reverbDensity": "0.0",
                 "reverbDiffusion": "0.0",
                 "setDistortion": "0",
-                "setHighPass": "1",
-                "setLowPass": "0",
+                "setPitch": "0",
                 "setReverb": "0"
             }
         },

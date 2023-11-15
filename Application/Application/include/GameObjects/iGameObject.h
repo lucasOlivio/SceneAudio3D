@@ -38,4 +38,6 @@ public:
 	// Will remove from list of objects on update
 	virtual void Delete() = 0;
 	virtual bool IsDeleted() = 0;
+
+	virtual void Interact(std::string tagThatInteracted, glm::vec3 position) = 0;
 };

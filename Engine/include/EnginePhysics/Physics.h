@@ -47,6 +47,11 @@ public:
 	// Collision tests
 	// Returns the collision points for each body
 
+	bool AABBAABB_Test(sAABB* aabbA, glm::mat4 matTransfA,
+					   sAABB* aabbB, glm::mat4 matTransfB,
+					   glm::vec3& contactPointA, glm::vec3& contactPointB,
+					   glm::vec3& collisionNormalA, glm::vec3& collisionNormalB);
+
 	bool AABBAABB2D_Test(sAABB2D* aabb2dA, glm::mat4 matTransfA,
 						 sAABB2D* aabb2dB, glm::mat4 matTransfB,
 						 glm::vec3& contactPointA, glm::vec3& contactPointB,

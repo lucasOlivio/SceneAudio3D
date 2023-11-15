@@ -52,6 +52,8 @@ public:
 	virtual void Delete();
 	virtual bool IsDeleted();
 
+	virtual void Interact(std::string tagThatInteracted, glm::vec3 position) {};
+
 	// Collision listener
 	//----------------
 	virtual void Notify(iEvent* pEvent, sCollisionData* pCollision) {};

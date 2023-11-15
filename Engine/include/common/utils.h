@@ -18,7 +18,7 @@ namespace myutils
     // Split string based on delimiter
     void SplitString(const std::string& stringIn,
         char delimiter,
-        std::vector<std::string> vecOut);
+        std::vector<std::string>& vecOut);
 
     // Convert array to a string separated by delimiter
     template <typename T>

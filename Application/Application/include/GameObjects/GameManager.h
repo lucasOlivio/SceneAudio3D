@@ -27,6 +27,7 @@ private:
 	int m_maxWidth;  // Total width of arena
 	int m_minHeight; // min height of arena
 	int m_minWidth;  // min width of arena
+	float m_minDistanceToInteract; // Minimum distance the player needs to be from other gameobject to interact
 
 public:
 	virtual ~GameManager();
@@ -61,8 +62,11 @@ public:
 
 	// Game mediator
 	//----------------
+	virtual iGameObject* GetGameObjectByName(std::string tagName);
 	virtual bool GetTargetDirection(std::string targetName, glm::vec3 objPosition, glm::vec3& directionOut);
 	virtual void DestroyGameObj(iGameObject* pGameObj);
+	virtual void Interact(std::string tagThatInteracted, glm::vec3 position);
+	virtual void InteractWith(std::string tagToInteract, std::string tagThatInteracted, glm::vec3 position);
 	virtual void SpawnGameObj(std::string tagName, glm::vec3 position, glm::vec3 direction);
 	virtual void SpawnGameObj(std::string tagName);
 	// Random spawn

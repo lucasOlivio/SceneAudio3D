@@ -30,6 +30,20 @@ public:
 	void SetListenerAttributes(const glm::vec3& position, const glm::vec3& velocity,
 								const glm::vec3& forward, const glm::vec3& up);
 
+	// Manage channel
 	void PlayAudio(EntityID entityId, glm::vec3 soundVelocity);
 	void StopAudio(EntityID entityId);
+	void PauseAudio(EntityID entityId, bool value);
+
+	bool SetPitch(EntityID entityId, float value);
+
+	bool IsPlaying(EntityID entityId);
+	// Check if the music is over
+	bool IsFinished(EntityID entityId);
+
+	// Channel effects
+	void SetReverberation(EntityID entityId, float decay, float density, float diffusion);
+	void SetDistortion(EntityID entityId, float level);
+	void SetHighpass(EntityID entityId);
+	void SetLowpass(EntityID entityId);
 };

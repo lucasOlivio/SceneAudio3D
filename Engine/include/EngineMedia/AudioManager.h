@@ -87,7 +87,7 @@ public:
 	int LoadChannel(FMOD::Channel* pChannel);
 
 	// Loading Audio 
-	bool LoadAudio(std::string file, bool isStream, int idChannelGroup, FMOD::Sound** pFMODAudio);
+	bool LoadAudio(std::string file, bool isStream, bool isLoop, int idChannelGroup, FMOD::Sound** pFMODAudio);
 
 	// Play audio in the next available channel
 	int PlayAudio(std::string audioName, int idChannelGroup,
@@ -104,6 +104,7 @@ public:
 
 	// Retrieving information
 	bool IsChannelPlaying(int id);
+	bool IsChannelPaused(int id);
 	bool IsAudioLoaded(std::string audioName);
 	void GetAudioLength(std::string audioName, unsigned int& value);
 	void GetPlaybackPosition(int id, unsigned int& value);

@@ -39,5 +39,5 @@ public:
 
 	// Collision listener
 	//----------------
-	virtual void Notify(iEvent* pEvent, sCollisionData* pCollision) {};
+	virtual void Notify(iEvent* pEvent, sCollisionData* pCollision);
 };

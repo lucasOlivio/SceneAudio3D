@@ -84,6 +84,7 @@ bool MediaPlayer::LoadAudios()
 
         bool audioLoaded = this->m_pAudioManager->LoadAudio(pAudio->GetFileName().c_str(), 
                                                             pAudio->IsStream(),
+                                                            pAudio->IsLoop(),
                                                             pAudio->GetChannelGroup(),
                                                             &pSound);
 
@@ -135,4 +136,77 @@ void MediaPlayer::StopAudio(EntityID entityId)
     AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
 
     this->m_pAudioManager->StopChannel(pAudio->GetChannelId());
+}
+
+void MediaPlayer::PauseAudio(EntityID entityId, bool value)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+
+    this->m_pAudioManager->SetPaused(pAudio->GetChannelId(), value);
+}
+
+bool MediaPlayer::SetPitch(EntityID entityId, float value)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+
+    return this->m_pAudioManager->SetChannelPitch(pAudio->GetChannelId(), value);
+}
+
+bool MediaPlayer::IsPlaying(EntityID entityId)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+
+    return this->m_pAudioManager->IsChannelPlaying(pAudio->GetChannelId());
+}
+
+bool MediaPlayer::IsFinished(EntityID entityId)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+    int channelId = pAudio->GetChannelId();
+
+    bool isPlaying = this->m_pAudioManager->IsChannelPlaying(channelId);
+    bool isPaused = this->m_pAudioManager->IsChannelPaused(channelId);
+
+    if (!isPlaying && !isPaused)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void MediaPlayer::SetReverberation(EntityID entityId, float decay, float density, float diffusion)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+    int channelId = pAudio->GetChannelId();
+
+    this->m_pAudioManager->AddReverbFilterOnChannel(channelId);
+    this->m_pAudioManager->SetReverbValuesOnChannel(channelId, decay, density, diffusion);
+}
+
+void MediaPlayer::SetDistortion(EntityID entityId, float level)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+    int channelId = pAudio->GetChannelId();
+
+    this->m_pAudioManager->AddDistortionFilterOnChannel(channelId);
+    this->m_pAudioManager->SetDistortionLevelFilterValuesOnChannel(channelId, level);
+}
+
+void MediaPlayer::SetHighpass(EntityID entityId)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+    int channelId = pAudio->GetChannelId();
+
+    this->m_pAudioManager->AddHighPassFilterOnChannel(channelId);
+}
+
+void MediaPlayer::SetLowpass(EntityID entityId)
+{
+    AudioComponent* pAudio = this->m_pSceneView->GetComponent<AudioComponent>(entityId, "audio");
+    int channelId = pAudio->GetChannelId();
+
+    this->m_pAudioManager->AddLowPassFilterOnChannel(channelId);
 }

@@ -2,6 +2,8 @@
 #include "GameObjects/GameManager.h"
 #include "GameObjects/Player.h"
 #include "GameObjects/AudioObject.h"
+#include "GameObjects/HangarDoorObject.h"
+#include "GameObjects/HangarDoorHandler.h"
 
 GameObjectFactory::GameObjectFactory(SceneView* pScene)
 {
@@ -34,6 +36,14 @@ iGameObject* GameObjectFactory::CreateGameObject(std::string gameObjName, bool i
 	else if (scriptName == "AudioObject")
 	{
 		pGameObj = new AudioObject();
+	}
+	else if (scriptName == "HangarDoorObject")
+	{
+		pGameObj = new HangarDoorObject();
+	}
+	else if (scriptName == "HangarDoorHandler")
+	{
+		pGameObj = new HangarDoorHandler();
 	}
 	else
 	{

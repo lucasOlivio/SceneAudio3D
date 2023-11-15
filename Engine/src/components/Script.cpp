@@ -12,6 +12,10 @@ bool ScriptComponent::IsActive()
 
 std::string ScriptComponent::GetVariable(std::string key)
 {
+    if (this->m_mapVariables.find(key) == this->m_mapVariables.end())
+    {
+        return "";
+    }
     return this->m_mapVariables[key];
 }
 

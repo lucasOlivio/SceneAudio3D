@@ -36,6 +36,12 @@
     <ClCompile Include="Application\src\GameObjects\AudioObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Application\src\GameObjects\HangarDoorObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\src\GameObjects\HangarDoorHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\shaders\fragmentShader01.glsl">
@@ -73,6 +79,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Application\include\GameObjects\AudioObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\include\GameObjects\HangarDoorObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\include\GameObjects\HangarDoorHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

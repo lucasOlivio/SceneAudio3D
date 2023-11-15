@@ -40,19 +40,21 @@ void Application::Update(double fixedDeltaTime)
 
 void Application::ChangeMode()
 {
-	this->Engine::ChangeMode();
-
 	if (this->m_pScene->IsPlaying())
-	{
-		this->m_pWindowSystem->CaptureMouse();
-		this->LoadGM();
-		this->m_pGM->OnStart(this->m_pCollisionEvent);
-	}
-	else
 	{
 		this->m_pWindowSystem->ReleaseMouse();
 		this->m_pGM->OnExit(this->m_pCollisionEvent);
 		delete this->m_pGM;
 		this->m_pGM = NULL;
+
+		this->Engine::ChangeMode();
+	}
+	else
+	{
+		this->Engine::ChangeMode();
+
+		this->m_pWindowSystem->CaptureMouse();
+		this->LoadGM();
+		this->m_pGM->OnStart(this->m_pCollisionEvent);
 	}
 }

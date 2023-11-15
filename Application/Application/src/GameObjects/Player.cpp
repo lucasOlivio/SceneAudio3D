@@ -33,6 +33,11 @@ void Player::Update(double deltaTime)
 	this->Move(deltaTime);
 
 	this->UpdateCamera();
+
+	if (Input::IsKeyPressed(GLFW_KEY_E))
+	{
+		this->m_pMediator->Interact(this->m_pTag->name, this->GetPosition());
+	}
 }
 
 void Player::Move(double deltaTime)
@@ -71,7 +76,7 @@ void Player::Move(double deltaTime)
 	this->m_pCamera->cameraEye = newPosition;
 	vec3 forward = this->m_pCamera->cameraFront * vec3(-1, 0, -1);
 
-	MediaPlayer::Get()->SetListenerAttributes(newPosition, newVelocity, 
+	MediaPlayer::Get()->SetListenerAttributes(newPosition, vec3(0),
 											forward, this->m_pCamera->upVector);
 }
 
@@ -101,4 +106,8 @@ void Player::UpdateCamera()
 	front.y = sin(glm::radians(this->m_pitch));
 	front.z = sin(glm::radians(this->m_yaw)) * cos(glm::radians(this->m_pitch));
 	this->m_pCamera->cameraFront = glm::normalize(front);
+}
+
+void Player::Notify(iEvent* pEvent, sCollisionData* pCollision)
+{
 }

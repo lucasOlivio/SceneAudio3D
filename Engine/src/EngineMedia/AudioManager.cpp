@@ -178,7 +178,7 @@ int AudioManager::LoadChannel(FMOD::Channel* pChannel)
   *
   * @return: The name of the audio file used as key
   */
-bool AudioManager::LoadAudio(std::string file, bool isStream, int idChannelGroup, FMOD::Sound** pSound)
+bool AudioManager::LoadAudio(std::string file, bool isStream, bool isLoop, int idChannelGroup, FMOD::Sound** pSound)
 {
 	// If our AudioManager is not initialized, we shouldn't do anything
 	if (!this->m_isInitialized)
@@ -200,16 +200,22 @@ bool AudioManager::LoadAudio(std::string file, bool isStream, int idChannelGroup
 	// TODO: Option to load audios that are not 3D
 
 	FMOD_RESULT result;
+	FMOD_MODE mode = FMOD_3D;
+	if (isLoop)
+	{
+		mode |= FMOD_LOOP_NORMAL;
+	}
+
 	if (isStream)
 	{
 		// This will only load the audio resource data as needed
 		// to play the audio.
-		result = this->m_pSystem->createStream(fullPath.c_str(), FMOD_DEFAULT, 0, pSound);
+		result = this->m_pSystem->createStream(fullPath.c_str(), mode, 0, pSound);
 	}
 	else
 	{
 		// This call loads our audio entirely into memory
-		result = this->m_pSystem->createSound(fullPath.c_str(), FMOD_3D | FMOD_LOOP_NORMAL, nullptr, pSound);
+		result = this->m_pSystem->createSound(fullPath.c_str(), mode, nullptr, pSound);
 	}
 
 	if (result != FMOD_OK)
@@ -242,12 +248,12 @@ int AudioManager::PlayAudio(std::string audioName, int idChannelGroup,
 		printf("Audio not found!\n");
 		return this->m_idNextChannel;	// Still want to return a valid channel id
 	}
-	printf("AudioFound!\n");
 
 	// Get the current channel id, and calculate the next one
 	int idChannel = this->m_idNextChannel;
 
-	FMOD::ChannelGroup* pChannelGroup = this->m_vecChannelGroup[idChannelGroup];
+	// FMOD::ChannelGroup* pChannelGroup = this->m_vecChannelGroup[idChannelGroup];
+	FMOD::ChannelGroup* pChannelGroup = nullptr;
 
 	// Attemp to play our sound.
 	FMOD_RESULT result = this->m_pSystem->playSound(it->second,
@@ -418,16 +424,39 @@ bool AudioManager::SetChannelPan(int id, float value)
 
 bool AudioManager::IsChannelPlaying(int id)
 {
+	if (!this->IsValidChannel(id))
+	{
+		return false;
+	}
+
 	// Check if the channel id is currently playing or not.
 	// If it is not playing we can do a cleanup
-	bool isPlaying;
+	bool isPlaying = false;
 	FMOD_RESULT result = this->m_vecChannel[id]->isPlaying(&isPlaying);
-	FMODCheckError(result);
 	return isPlaying;
+}
+
+bool AudioManager::IsChannelPaused(int id)
+{
+	if (!this->IsValidChannel(id))
+	{
+		return false;
+	}
+
+	// Check if the channel id is currently paused.
+	bool isPaused = false;
+	FMOD_RESULT result = this->m_vecChannel[id]->getPaused(&isPaused);
+	return isPaused;
 }
 
 void AudioManager::GetPlaybackPosition(int id, unsigned int& value)
 {
+	if (!this->IsValidChannel(id))
+	{
+		value = 0;
+		return;
+	}
+
 	// Use this call to get the playback position of a channel.
 	FMOD_RESULT result = this->m_vecChannel[id]->getPosition(&value, FMOD_TIMEUNIT_MS);
 	FMODCheckError(result);
@@ -479,8 +508,6 @@ void AudioManager::SetChannelGroupVolume(int id, float value)
 	FMOD_RESULT result = this->m_vecChannelGroup[id]->setVolume(value);
 	FMODCheckError(result);
 }
-
-
 
 void AudioManager::SetChannelGroupPitch(int id, float value)
 {

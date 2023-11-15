@@ -34,10 +34,11 @@ void GameManager::OnStart(iEvent* pEvent)
 
 	// Script custom
 	//----------------
-	this->m_maxHeight = std::stof(this->m_pScript->GetVariable("maxHeight"));
-	this->m_maxWidth = std::stof(this->m_pScript->GetVariable("maxWidth"));
-	this->m_minHeight = std::stof(this->m_pScript->GetVariable("minHeight"));
-	this->m_minWidth = std::stof(this->m_pScript->GetVariable("minWidth"));
+	this->m_maxHeight = std::stoi(this->m_pScript->GetVariable("maxHeight"));
+	this->m_maxWidth = std::stoi(this->m_pScript->GetVariable("maxWidth"));
+	this->m_minHeight = std::stoi(this->m_pScript->GetVariable("minHeight"));
+	this->m_minWidth = std::stoi(this->m_pScript->GetVariable("minWidth"));
+	this->m_minDistanceToInteract = std::stof(this->m_pScript->GetVariable("minDistanceToInteract"));
 
 	GameObjectFactory gameObjFactory(this->m_pSceneView);
 
@@ -63,9 +64,24 @@ void GameManager::OnStart(iEvent* pEvent)
 
 void GameManager::Update(double deltaTime)
 {
+	std::vector<int> toDelete;
+
 	for (int i = 0; i < this->m_vecGameObjects.size(); i++)
 	{
+		iGameObject* pGameObject = this->m_vecGameObjects[i];
+
+		if (pGameObject->IsDeleted())
+		{
+			toDelete.push_back(i);
+			continue;
+		}
 		this->m_vecGameObjects[i]->Update(deltaTime);
+	}
+
+	// Clear deleted game objects
+	for (int i : toDelete)
+	{
+		this->m_vecGameObjects.erase(this->m_vecGameObjects.begin() + i);
 	}
 }
 
@@ -93,19 +109,32 @@ EntityID GameManager::GetEntityID()
 	return this->m_entityID;
 }
 
-bool GameManager::GetTargetDirection(std::string targetName, glm::vec3 objPosition, glm::vec3& directionOut)
+iGameObject* GameManager::GetGameObjectByName(std::string tagName)
 {
 	for (iGameObject* pGameObj : this->m_vecGameObjects)
 	{
-		if (pGameObj->GetScriptName() == targetName)
+		if (pGameObj->GetTagName() == tagName)
 		{
-			glm::vec3 targetPosition = pGameObj->GetPosition();
-			directionOut = myutils::GetCardinalDirection(targetPosition, objPosition);
-			return true;
+			return pGameObj;
 		}
 	}
 
-	return false;
+	return nullptr;
+}
+
+bool GameManager::GetTargetDirection(std::string targetName, glm::vec3 objPosition, glm::vec3& directionOut)
+{
+	iGameObject* pGameObject = this->GetGameObjectByName(targetName);
+
+	if (pGameObject == nullptr)
+	{
+		return false;
+	}
+
+	glm::vec3 targetPosition = pGameObject->GetPosition();
+	directionOut = myutils::GetCardinalDirection(targetPosition, objPosition);
+
+	return true;
 }
 
 void GameManager::DestroyGameObj(iGameObject* pGameObj)
@@ -123,6 +152,45 @@ void GameManager::DestroyGameObj(iGameObject* pGameObj)
 	// Clean from scene
 	this->m_pSceneView->DeleteEntity(pGameObj->GetEntityID());
 	this->m_pSceneView->DeleteListener(pGameObj);
+}
+
+void GameManager::Interact(std::string tagThatInteracted, glm::vec3 position)
+{
+	iGameObject* pGameObjectInteract = nullptr;
+	float minDistance = this->m_minDistanceToInteract;
+
+	for (int i = 0; i < this->m_vecGameObjects.size(); i++)
+	{
+		iGameObject* pGameObject = this->m_vecGameObjects[i];
+		float distance = glm::length(pGameObject->GetPosition() - position);
+
+		// Only closest game object gets the interaction
+		if (distance < minDistance &&
+			tagThatInteracted != pGameObject->GetTagName())
+		{
+			minDistance = distance;
+			pGameObjectInteract = pGameObject;
+		}
+	}
+
+	if (pGameObjectInteract == nullptr)
+	{
+		return;
+	}
+
+	pGameObjectInteract->Interact(tagThatInteracted, position);
+}
+
+void GameManager::InteractWith(std::string tagToInteract, std::string tagThatInteracted, glm::vec3 position)
+{
+	iGameObject* pGameObject = this->GetGameObjectByName(tagToInteract);
+
+	if (pGameObject == nullptr)
+	{
+		return;
+	}
+
+	pGameObject->Interact(tagThatInteracted, position);
 }
 
 void GameManager::SpawnGameObj(std::string tagName, glm::vec3 position, glm::vec3 direction)

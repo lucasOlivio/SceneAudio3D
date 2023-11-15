@@ -10,6 +10,7 @@ private:
 	std::string m_name;
 	FMOD::Sound* m_pSound;
 	bool m_isStream;
+	bool m_isLoop;
 	int m_idChannelGroup;
 	float m_minDistance;
 	float m_maxDistance;
@@ -17,10 +18,13 @@ private:
 	int m_currentChannelId;
 
 public:
+	AudioComponent() : m_currentChannelId(-1) {};
+
 	virtual void GetInfo(sComponentInfo& compInfoOut);
 	virtual void SetParameter(sParameterInfo& parameterIn);
 
 	bool IsStream();
+	bool IsLoop();
 	std::string GetFileName();
 	FMOD::Sound* GetSound();
 	int GetChannelGroup();

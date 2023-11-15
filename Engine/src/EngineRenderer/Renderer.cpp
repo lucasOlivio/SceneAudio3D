@@ -190,6 +190,13 @@ void Renderer::RenderAllModels(double deltaTime)
 			{
 				for (int z = 0; z < axis[2]; z++)
 				{
+					if (pLightComp)
+					{
+						// Setting object always behind light
+						LightComponent* pLight = (LightComponent*)pLightComp;
+						pTransform->SetPosition(pLight->GetPosition() + pLight->GetDirection());
+					}
+
 					vec3 delta = offset;
 					delta.x = offset.x * x;
 					delta.y = offset.y * y;

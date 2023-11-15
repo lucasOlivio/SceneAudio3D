@@ -33,7 +33,7 @@ char* myutils::GetFileFromPath(const char* cPath)
 
 void myutils::SplitString(const std::string& stringIn,
     char delimiter,
-    std::vector<std::string> vecOut)
+    std::vector<std::string>& vecOut)
 {
     std::istringstream iss(stringIn.c_str());
     std::string token;
